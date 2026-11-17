@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Studio Hanoi
 
 A browser-based Tower of Hanoi game with a SWI-Prolog backend and a plain HTML, CSS, and JavaScript frontend. The backend owns each game's peg state and validates every move.
@@ -24,3 +25,7 @@ The server listens on port 8080. The game state is kept in server memory, so sta
 ```powershell
 swipl -q -g run_tests -t halt test_game.pl
 ```
+=======
+# Tower-of-Hano1
+Tower of Hanoi
+>>>>>>> c87c3c052848b1e9541f11630ef2ea922e3a8a0e
