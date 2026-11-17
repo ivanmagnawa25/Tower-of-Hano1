@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="A calm, colorful Tower of Hanoi puzzle.">
+  <title>Tower of Hanoi — The daily pause</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Hanoi home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>STUDIO <strong>HANOI</strong></span>
+      </a>
+      <div class="topbar-note"><span class="live-dot"></span> A LITTLE SPACE TO THINK</div>
+      <button class="button button--quiet" id="new-game" type="button">
+        <span aria-hidden="true">↻</span> New game
+      </button>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">THE CLASSIC, MADE CALM</p>
+      <h1 id="page-title">One move at a time<span>.</span></h1>
+      <p class="intro-copy">Move the whole stack to another peg. Keep the larger disks underneath, and find your own rhythm.</p>
+    </section>
+
+    <section class="game-card" aria-label="Tower of Hanoi game">
+      <div class="game-toolbar">
+        <label class="difficulty">
+          <span class="eyebrow">PUZZLE SIZE</span>
+          <select id="disk-count" aria-label="Number of disks">
+            <option value="3">3 disks · gentle</option>
+            <option value="4">4 disks · easy</option>
+            <option value="5" selected>5 disks · classic</option>
+            <option value="6">6 disks · focused</option>
+            <option value="7">7 disks · patient</option>
+            <option value="8">8 disks · master</option>
+          </select>
+        </label>
+        <div class="stats" aria-live="polite">
+          <div class="stat"><span class="eyebrow">MOVES</span><strong id="move-count">0</strong></div>
+          <div class="stat"><span class="eyebrow">BEST POSSIBLE</span><strong id="minimum-count">31</strong></div>
+          <div class="stat"><span class="eyebrow">TIME</span><strong id="timer">00:00</strong></div>
+        </div>
+      </div>
+
+      <div class="board-wrap">
+        <div class="board" id="board" role="group" aria-label="Three pegs. Select a peg with a disk, then choose where to move it.">
+          <button class="peg" type="button" data-peg-index="0" aria-label="Peg 1">
+            <span class="peg-rod" aria-hidden="true"></span>
+            <span class="disk-stack"></span>
+            <span class="peg-label">01 <span>START</span></span>
+          </button>
+          <button class="peg" type="button" data-peg-index="1" aria-label="Peg 2">
+            <span class="peg-rod" aria-hidden="true"></span>
+            <span class="disk-stack"></span>
+            <span class="peg-label">02 <span>TRANSFER</span></span>
+          </button>
+          <button class="peg" type="button" data-peg-index="2" aria-label="Peg 3">
+            <span class="peg-rod" aria-hidden="true"></span>
+            <span class="disk-stack"></span>
+            <span class="peg-label">03 <span>FINISH</span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="game-footer">
+        <p id="game-message" role="status" aria-live="polite"><span class="message-mark" aria-hidden="true">✳</span> Select a peg to pick up its top disk.</p>
+        <span class="progress-label" id="progress-label">0 of 31 moves</span>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <span>THINK AHEAD. TAKE YOUR TIME.</span>
+      <span>THE FEWEST MOVES: <strong>2<sup>n</sup> − 1</strong></span>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+  <div class="win-overlay" id="win-overlay" hidden>
+    <section class="win-card" role="dialog" aria-modal="true" aria-labelledby="win-title">
+      <span class="win-icon" aria-hidden="true">✳</span>
+      <p class="eyebrow">BEAUTIFULLY DONE</p>
+      <h2 id="win-title">A little more<br>in balance.</h2>
+      <p id="win-summary"></p>
+      <button class="button button--primary" id="play-again" type="button">Play again <span aria-hidden="true">→</span></button>
+    </section>
+  </div>
+</body>
+</html>
